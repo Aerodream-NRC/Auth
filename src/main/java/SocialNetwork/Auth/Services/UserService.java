@@ -1,13 +1,34 @@
 package SocialNetwork.Auth.Services;
 
+import SocialNetwork.Auth.Dto.UserDto;
+import SocialNetwork.Auth.Enriries.UserEntity;
+import SocialNetwork.Auth.Repositories.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-//TODO
-//@Service
-//public class UserService implements UserDetailsService {
-//
-//
-//    @Autowired
-//    private UserService userService;
-//}
+
+@Service
+@Transactional
+public class UserService implements IUserService{
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public UserEntity registerNewUserAccount(UserDto userDto) throws UserAlreadyExistException {
+        if (loginExists(userDto.getLogin())) {
+            throw new UserAlreadyExistException("There is an account with that login: "
+                    + userDto.getLogin());
+        }
+        UserEntity user = new UserEntity();
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setPassword(userDto.getPassword());
+        user.setLogin(userDto.getLogin());
+
+        return userRepository.save(user);
+    }
+    private boolean loginExists(String login) {
+        return userRepository.findByLogin(login) != null;
+    }
+}

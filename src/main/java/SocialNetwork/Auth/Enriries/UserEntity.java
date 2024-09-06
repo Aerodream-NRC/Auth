@@ -1,11 +1,11 @@
 package SocialNetwork.Auth.Enriries;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import SocialNetwork.Auth.Configurers.ValidLogin;
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -17,8 +17,21 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long Id;
+    @Column(name = "user_id")
+    private Long id;
+
+    @ValidLogin
+    @NonNull
+    private String login;
 
     @NonNull
-    private String login, password, firstName, lastName;
+    private String password;
+
+    @NonNull
+    private String firstName;
+
+    @NonNull
+    private String lastName;
+
+    private List<String> roles;
 }
