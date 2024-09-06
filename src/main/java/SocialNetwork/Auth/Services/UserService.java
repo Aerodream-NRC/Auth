@@ -8,6 +8,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class UserService implements IUserService{
@@ -26,6 +28,7 @@ public class UserService implements IUserService{
         user.setLastName(userDto.getLastName());
         user.setPassword(userDto.getPassword());
         user.setLogin(userDto.getLogin());
+        user.setRoles(List.of("USER"));
 
         return userRepository.save(user);
     }

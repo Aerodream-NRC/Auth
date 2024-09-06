@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
+import java.util.List;
+
 @Getter
 @Setter
 @PasswordMatches
@@ -25,4 +27,6 @@ public class UserDto {
 
     @NonNull
     private String login;
+
+    private List<String> roles;
 }

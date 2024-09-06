@@ -7,19 +7,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static SocialNetwork.Auth.Enums.Roles.Names.USER;
-//TODO
-//@Configuration
-//@EnableMethodSecurity
-//public class SecureConfigurer {
-//
-//    @Bean
-//    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
-//
-//        httpSecurity
-//                .authorizeHttpRequests((authz) -> authz
-//                        .requestMatchers("/reg").permitAll()
-//                );
-//        return httpSecurity.build();
-//
-//    }
-//}
+
+@Configuration
+@EnableMethodSecurity
+public class SecureConfigurer {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
+
+        httpSecurity
+                .authorizeHttpRequests((authz) -> authz
+                        .requestMatchers("/*").permitAll()
+                );
+        return httpSecurity.build();
+
+    }
+}

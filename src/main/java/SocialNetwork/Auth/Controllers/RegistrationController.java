@@ -20,6 +20,7 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
+    @Autowired
     private ModelAndView modelAndView;
 
     @GetMapping("/reg")
@@ -37,7 +38,7 @@ public class RegistrationController {
         try {
             UserEntity registered = userService.registerNewUserAccount(userDto);
         } catch (UserAlreadyExistException uaeEx) {
-            modelAndView.addObject("message", "An account for that username/email already exists.");
+            modelAndView.addObject("message", "An account for that login already exists.");
             return modelAndView;
         }
 
