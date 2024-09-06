@@ -6,18 +6,20 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
-@EnableMethodSecurity
-public class SecureConfigurer {
-
-    @Bean
-    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
-
-        httpSecurity
-                .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/reg").anonymous()
-                );
-        return httpSecurity.build();
-
-    }
-}
+import static SocialNetwork.Auth.Enums.Roles.Names.USER;
+//TODO
+//@Configuration
+//@EnableMethodSecurity
+//public class SecureConfigurer {
+//
+//    @Bean
+//    public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
+//
+//        httpSecurity
+//                .authorizeHttpRequests((authz) -> authz
+//                        .requestMatchers("/reg").permitAll()
+//                );
+//        return httpSecurity.build();
+//
+//    }
+//}

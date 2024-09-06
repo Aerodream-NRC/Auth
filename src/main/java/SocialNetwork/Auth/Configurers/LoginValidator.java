@@ -7,9 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LoginValidator implements ConstraintValidator<ValidLogin, String> {
-    private Pattern pattern;
-    private Matcher matcher;
-    private static final String LOGIN_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
+    private static final String LOGIN_PATTERN = "^[_A-Za-z0-9-]$";
 
     @Override
     public void initialize(ValidLogin constraintAnnotation) {
@@ -17,12 +15,12 @@ public class LoginValidator implements ConstraintValidator<ValidLogin, String> {
 
     @Override
     public boolean isValid(String login, ConstraintValidatorContext context){
-        return (validateEmail(login));
+        return (validateLogin(login));
     }
 
-    private boolean validateEmail(String login) {
-        pattern = Pattern.compile(LOGIN_PATTERN);
-        matcher = pattern.matcher(login);
+    private boolean validateLogin(String login) {
+        Pattern pattern = Pattern.compile(LOGIN_PATTERN);
+        Matcher matcher = pattern.matcher(login);
         return matcher.matches();
     }
 }

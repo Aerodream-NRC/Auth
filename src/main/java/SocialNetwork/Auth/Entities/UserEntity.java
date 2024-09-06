@@ -1,11 +1,10 @@
-package SocialNetwork.Auth.Enriries;
+package SocialNetwork.Auth.Entities;
 
 import SocialNetwork.Auth.Configurers.ValidLogin;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -28,9 +27,11 @@ public class UserEntity {
     private String password;
 
     @NonNull
+    @Column(name = "first_name")
     private String firstName;
 
     @NonNull
+    @Column(name = "last_name")
     private String lastName;
 
     private List<String> roles;

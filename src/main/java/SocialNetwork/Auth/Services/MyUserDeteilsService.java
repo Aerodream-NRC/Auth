@@ -1,6 +1,6 @@
 package SocialNetwork.Auth.Services;
 
-import SocialNetwork.Auth.Enriries.UserEntity;
+import SocialNetwork.Auth.Entities.UserEntity;
 import SocialNetwork.Auth.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,9 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import static SocialNetwork.Auth.Enums.Roles.USER;
 
 public class MyUserDeteilsService implements UserDetailsService {
 

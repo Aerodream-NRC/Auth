@@ -1,7 +1,7 @@
 package SocialNetwork.Auth.Controllers;
 
 import SocialNetwork.Auth.Dto.UserDto;
-import SocialNetwork.Auth.Enriries.UserEntity;
+import SocialNetwork.Auth.Entities.UserEntity;
 import SocialNetwork.Auth.Exceptions.UserAlreadyExistException;
 import SocialNetwork.Auth.Services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
