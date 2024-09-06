@@ -2,6 +2,7 @@ package SocialNetwork.Auth.Services;
 
 import SocialNetwork.Auth.Dto.UserDto;
 import SocialNetwork.Auth.Enriries.UserEntity;
+import SocialNetwork.Auth.Exceptions.UserAlreadyExistException;
 import SocialNetwork.Auth.Repositories.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
