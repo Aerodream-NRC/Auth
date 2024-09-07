@@ -1,5 +1,6 @@
 package SocialNetwork.Auth.Services;
 
+import SocialNetwork.Auth.Entities.RoleEntiity;
 import SocialNetwork.Auth.Entities.UserEntity;
 import SocialNetwork.Auth.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,12 @@ public class MyUserDeteilsService implements UserDetailsService {
 
         return new org.springframework.security.core.userdetails.User(
                 user.getLogin(), user.getPassword(), enabled, accountNonExpired,
-                credentialsNonExpired, accountNonLocked, getAuthorities(user.getRoles()));
+                credentialsNonExpired, accountNonLocked, getAuthorities(user.getRole()));
     }
-    private static List<GrantedAuthority> getAuthorities (List<String> roles) {
+    private static List<GrantedAuthority> getAuthorities (List<RoleEntiity> roles) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        for (String role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role));
+        for (RoleEntiity role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.toString()));
         }
         return authorities;
     }

@@ -6,8 +6,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static SocialNetwork.Auth.Enums.Roles.Names.USER;
-
 @Configuration
 @EnableMethodSecurity
 public class SecureConfigurer {

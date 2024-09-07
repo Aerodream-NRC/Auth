@@ -1,6 +1,7 @@
 package SocialNetwork.Auth.Dto;
 
 import SocialNetwork.Auth.Configurers.PasswordMatches;
+import SocialNetwork.Auth.Entities.RoleEntiity;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
@@ -28,5 +29,5 @@ public class UserDto {
     @NonNull
     private String login;
 
-    private List<String> roles;
+    private List<RoleEntiity> roles;
 }
