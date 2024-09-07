@@ -15,7 +15,7 @@ public class SecureConfigurer {
 
         httpSecurity
                 .authorizeHttpRequests((authz) -> authz
-                        .requestMatchers("/*").permitAll()
+                        .anyRequest().permitAll()
                 );
         return httpSecurity.build();
 

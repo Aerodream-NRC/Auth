@@ -16,7 +16,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false, updatable = false)
     private Long id;
 
     @ValidLogin
