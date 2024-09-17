@@ -11,7 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class UserEntity {
 
     @Id
@@ -40,4 +39,11 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<RoleEntiity> role;
+
+    public UserEntity(@NonNull String login, @NonNull String password, @NonNull String firstName, @NonNull String lastName) {
+        this.login = login;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

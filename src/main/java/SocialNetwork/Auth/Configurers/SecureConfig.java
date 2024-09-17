@@ -8,7 +8,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableMethodSecurity
-public class SecureConfigurer {
+public class SecureConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception {
@@ -18,6 +18,5 @@ public class SecureConfigurer {
                         .anyRequest().permitAll()
                 );
         return httpSecurity.build();
-
     }
 }
